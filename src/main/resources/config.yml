@@ -1,0 +1,20 @@
+# Lista de itens que podem ser escolhidos abaixo
+# https://helpch.at/docs/1.8/org/bukkit/Material.html
+Item: "ENDER_PORTAL_FRAME"
+
+#Personalização do item
+Nome: "&b&nLIMPADOR DE CHUNK"
+Lore:
+  - "&7Limpador de chunks"
+  - "&7:D"
+
+# Aqui você define a permissão para givar o Item de limpar chunk.
+Permissao: "chunkclear.admin"
+SemPerm: "&cVocê não tem permissão para usar esse comando."
+EmAtaque: "&cSeu claim está em ataque, aguarde."
+SemFac: "&cVocê precisa estar em uma facção para usar isso."
+SemCargo: "&cVocê precisa ser capitão ou superior para usar isso."
+SemClaim: "&cVocê precisa estar em um claim de sua facção para usar isso"
+ActionBar: "&aVocê limpou a chunk com sucesso!!"
+ItemRecebido: "&aVocê recebeu um limpador de chunks!"
+

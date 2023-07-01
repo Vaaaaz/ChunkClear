@@ -1,0 +1,7 @@
+name: VazClearChunk
+author: Vaaaaz
+main: com.vaaaaz.clearchunk.Main
+version: 1.0
+depend: ["AtlasLicense"]
+commands:
+  clearchunk:
