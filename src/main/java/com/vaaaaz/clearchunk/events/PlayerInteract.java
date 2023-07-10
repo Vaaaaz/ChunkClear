@@ -35,7 +35,7 @@ public class PlayerInteract implements Listener {
         if (itemInHand == null || itemInHand.getType() == Material.AIR)
             return;
 
-        Material item = Material.getMaterial(Main.config.getConfig().getString("Item"));
+        Material item = Material.getMaterial(Main.config.getConfig().getString("Limpador.Material"));
 
         if (action == Action.RIGHT_CLICK_BLOCK) {
 
@@ -53,7 +53,7 @@ public class PlayerInteract implements Listener {
                 event.setCancelled(true);
 
                 if (!(playerFaction.isPresent())) {
-                    player.sendMessage(Main.config.getConfig().getString("SemFac").replace("&", "§"));
+                    player.sendMessage(Main.config.getConfig().getString("Mensagens.SemFac").replace("&", "§"));
                     event.setCancelled(true);
                     return;
                 }
@@ -62,7 +62,7 @@ public class PlayerInteract implements Listener {
                 FactionRole memberRole = atlasFaction.getMemberRole(player.getName());
 
                 if (atlasFaction.isUnderAttack()) {
-                    player.sendMessage(Main.config.getConfig().getString("EmAtaque").replace("&", "§"));
+                    player.sendMessage(Main.config.getConfig().getString("Mensagens.EmAtaque").replace("&", "§"));
                     event.setCancelled(true);
                     return;
                 }
@@ -73,7 +73,7 @@ public class PlayerInteract implements Listener {
                 }
 
                 if (!(memberRole == FactionRole.LEADER)) {
-                    player.sendMessage(Main.config.getConfig().getString("SemCargo").replace("&", "§"));
+                    player.sendMessage(Main.config.getConfig().getString("Mensagens.SemCargo").replace("&", "§"));
                     event.setCancelled(true);
                     return;
                 }
@@ -83,7 +83,7 @@ public class PlayerInteract implements Listener {
                     List<Block> claimBlocks = chunkBlocks(claimChunk);
 
                     if (!(claimBlocks.contains(clickedBlock))) {
-                        player.sendMessage(Main.config.getConfig().getString("SemClaim").replace("&", "§"));
+                        player.sendMessage(Main.config.getConfig().getString("Mensagens.SemClaim").replace("&", "§"));
                         event.setCancelled(true);
                         return;
                     }
@@ -91,7 +91,7 @@ public class PlayerInteract implements Listener {
                     claimBlocks.forEach(blocks -> blocks.setType(Material.AIR));
 
                     removeItemFromHand(player, 1);
-                    ActionBarAPI.sendActionBarMessage(player, Main.config.getConfig().getString("ActionBar").replace("&", "§"));
+                    ActionBarAPI.sendActionBarMessage(player, Main.config.getConfig().getString("Mensagens.ActionBar").replace("&", "§"));
                 }
             });
         }

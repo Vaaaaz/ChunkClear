@@ -31,26 +31,26 @@ public class GiveClearChunk implements CommandExecutor {
         Player player = (Player) sender;
 
         if (!(player.hasPermission(Main.config.getConfig().getString("Permissao")))) {
-            player.sendMessage(Main.config.getConfig().getString("SemPerm").replace("&", "§"));
+            player.sendMessage(Main.config.getConfig().getString("Mensagens.SemPerm").replace("&", "§"));
             return true;
         }
 
         List<String> lore = new ArrayList<>();
 
-        Main.config.getConfig().getStringList("Lore").forEach(line -> {
+        Main.config.getConfig().getStringList("Limpador.Lore").forEach(line -> {
             lore.add(line.replace("&", "§"));
         });
 
-        ItemStack item = new ItemStack(Material.getMaterial(Main.config.getConfig().getString("Item")));
+        ItemStack item = new ItemStack(Material.getMaterial(Main.config.getConfig().getString("Limpador.Material")));
         ItemMeta limpador = item.getItemMeta();
 
-        limpador.setDisplayName(Main.config.getConfig().getString("Nome").replace("&", "§"));
+        limpador.setDisplayName(Main.config.getConfig().getString("Limpador.Nome").replace("&", "§"));
         limpador.setLore(lore);
 
         item.setItemMeta(limpador);
 
         player.getInventory().addItem(item);
-        player.sendMessage(Main.config.getConfig().getString("ItemRecebido").replace("&", "§"));
+        player.sendMessage(Main.config.getConfig().getString("Mensagens.ItemRecebido").replace("&", "§"));
         return true;
     }
 }
